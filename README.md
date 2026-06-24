@@ -2,6 +2,15 @@ Dưới đây là nội dung **README.md** tổng thể dành cho dự án. Bạ
 
 ---
 
+### Dataset Links
+| Dataset | Link |
+|---------|------|
+| The MNIST Dataset | [MNIST](https://www.kaggle.com/datasets/vnhphcbuhunh/the-mnist-dataset) |
+| The Fashion-MNIST Dataset | [Fashion-MNIST](https://www.kaggle.com/datasets/vnhphcbuhunh/the-fashion-mnist-dataset) |
+| The Food-MNIST Dataset | [Food-MNIST](https://www.kaggle.com/datasets/vnhphcbuhunh/the-food-mnist-dataset) |
+
+---
+
 # 📘 AI Project 3 - Supervised Learning on MNIST Variants
 
 **Nhóm:** [Điền tên nhóm]  
