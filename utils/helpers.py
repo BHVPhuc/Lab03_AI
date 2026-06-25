@@ -8,6 +8,25 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
+def read_idx_file(filepath):
+    """
+    Đọc file IDX (định dạng MNIST) đã giải nén.
+    Trả về numpy array.
+    """
+    with open(filepath, 'rb') as f:
+        magic = int.from_bytes(f.read(4), 'big')
+        if magic == 2051:  # Hình ảnh
+            num_images = int.from_bytes(f.read(4), 'big')
+            rows = int.from_bytes(f.read(4), 'big')
+            cols = int.from_bytes(f.read(4), 'big')
+            data = np.frombuffer(f.read(), dtype=np.uint8)
+            data = data.reshape(num_images, rows * cols)
+        elif magic == 2049:  # Nhãn
+            num_labels = int.from_bytes(f.read(4), 'big')
+            data = np.frombuffer(f.read(), dtype=np.uint8)
+        else:
+            raise ValueError(f"Magic number {magic} không hợp lệ")
+        return data
 # --------------------------------------------
 # 1. HÀM TẢI DỮ LIỆU TỪ KAGGLE (có thể tùy chỉnh)
 # --------------------------------------------
