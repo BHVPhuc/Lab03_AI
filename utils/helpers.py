@@ -27,24 +27,20 @@ def read_idx_file(filepath):
         else:
             raise ValueError(f"Magic number {magic} không hợp lệ")
         return data
+
 # --------------------------------------------
 # 1. HÀM TẢI DỮ LIỆU TỪ KAGGLE (có thể tùy chỉnh)
 # --------------------------------------------
 
-def load_mnist_data(base_path="/kaggle/input/mnist-lab3"):
+def load_mnist_data(base_path="/kaggle/input/datasets/vnhphcbuhunh/the-mnist-dataset"):
     """
-    Tải dữ liệu MNIST từ thư mục Kaggle.
-    Giả định có 2 file: train.csv và test.csv, cột đầu tiên là 'label'.
+    Tải dữ liệu MNIST từ Kaggle dataset của bạn (định dạng IDX).
+    Các file nằm trong thư mục con riêng.
     """
-    train_df = pd.read_csv(os.path.join(base_path, 'train.csv'))
-    test_df = pd.read_csv(os.path.join(base_path, 'test.csv'))
-    
-    # Tách features và labels
-    X_train = train_df.drop('label', axis=1).values
-    y_train = train_df['label'].values
-    X_test = test_df.drop('label', axis=1).values
-    y_test = test_df['label'].values
-    
+    X_train = read_idx_file(os.path.join(base_path, "train-images-idx3-ubyte", "train-images.idx3-ubyte"))
+    y_train = read_idx_file(os.path.join(base_path, "train-labels-idx1-ubyte", "train-labels.idx1-ubyte"))
+    X_test  = read_idx_file(os.path.join(base_path, "t10k-images-idx3-ubyte", "t10k-images.idx3-ubyte"))
+    y_test  = read_idx_file(os.path.join(base_path, "t10k-labels-idx1-ubyte", "t10k-labels.idx1-ubyte"))
     return X_train, y_train, X_test, y_test
 
 
