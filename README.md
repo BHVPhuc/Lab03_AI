@@ -2,6 +2,46 @@ Dưới đây là nội dung **README.md** tổng thể dành cho dự án. Bạ
 
 ---
 
+## 🧪 Phần làm của Thành viên A – MNIST
+
+### Mục tiêu
+Phân tích bộ dữ liệu MNIST bằng hai mô hình học máy khác nhau: Decision Tree và Neural Network (MLP), sau đó so sánh hiệu quả của từng mô hình thông qua các chỉ số đánh giá như accuracy, precision, recall và F1-score.
+
+### Nội dung chính trong notebook
+1. Chuẩn bị dữ liệu
+- Tải bộ dữ liệu MNIST từ TensorFlow/Keras.
+- Chuyển ảnh 28x28 thành vector 784 đặc trưng.
+- Chia tập train/validation theo kiểu stratified split với tỷ lệ 80/20.
+- Chuẩn hóa pixel về khoảng $[0,1]$.
+- Vẽ biểu đồ phân phối lớp để kiểm tra độ cân bằng dữ liệu.
+
+2. Xây dựng Decision Tree
+- Huấn luyện mô hình DecisionTreeClassifier với criterion là entropy.
+- Trực quan hóa cây quyết định bằng Graphviz.
+- Tuning các tham số: max_depth, min_samples_split và min_samples_leaf.
+
+3. Xây dựng Neural Network
+- Huấn luyện mô hình MLPClassifier với 2 lớp ẩn.
+- Sử dụng activation ReLU và solver Adam.
+- Đánh giá trên tập validation.
+
+4. Đánh giá và so sánh
+- Dự đoán trên tập test.
+- In classification report, confusion matrix và so sánh F1-score giữa Decision Tree và MLP.
+- Rút ra kết luận về mô hình phù hợp hơn cho bài toán MNIST.
+
+### Tài liệu và kết quả đầu ra
+- Notebook chính: [notebooks/mnist.ipynb](notebooks/mnist.ipynb)
+- Các hình ảnh được lưu trong thư mục [figures](figures)
+- Các kết quả đánh giá được trình bày trực tiếp trong notebook và lưu dưới dạng hình ảnh khi chạy xong.
+
+### Cách chạy
+1. Cài đặt các thư viện trong [requirements.txt](requirements.txt).
+2. Mở [notebooks/mnist.ipynb](notebooks/mnist.ipynb) và chạy từ đầu đến cuối.
+3. Kiểm tra các file hình ảnh được tạo trong [figures](figures).
+
+---
+
 ### Dataset Links
 | Dataset | Link |
 |---------|------|
